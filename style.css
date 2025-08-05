@@ -1,0 +1,25 @@
+*,
+html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+footer {
+  background-color: whitesmoke;
+  padding: 20px;
+  text-align: center;
+  color: rgb(66, 66, 66);
+}
+
+footer a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+footer a:hover {
+  font-weight: 800;
+}
