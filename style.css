@@ -2,17 +2,85 @@
 html,
 body {
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(254, 255, 255);
+  height: 100%;
 }
 
 h1 {
   text-align: center;
+  font-size: 30px;
+}
+
+h2 {
+  color: rgb(38, 38, 38);
+  font-size: 20px;
+}
+
+select {
+  height: 40px;
+  border-radius: 6px;
+  width: 100%;
+  padding: 10px;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.container {
+  min-width: 40%;
+  border-radius: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 60px;
+  margin: 40px auto;
+}
+
+.city {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(86, 86, 86, 0.2);
+  align-items: center;
+}
+
+.city:last-child {
+  border-bottom: none;
+  padding-bottom: 0px;
+}
+
+.date {
+  color: rgb(86, 86, 86);
+  font-size: 16px;
+}
+
+.time {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.ampm {
+  font-size: 12px;
+  font-weight: normal;
 }
 
 footer {
-  background-color: whitesmoke;
+  background-color: rgb(241, 249, 255);
   padding: 20px;
   text-align: center;
   color: rgb(66, 66, 66);
+  width: 100vw;
 }
 
 footer a {

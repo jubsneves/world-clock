@@ -9,13 +9,54 @@
 </head>
 
 <body>
-    <h1>World Clock</h1>
+    <div class="wrapper">
+        <main class="container">
+            <h1>World Clock</h1>
 
-    <footer>
-        <p>This project was coded by <a href="https://github.com/jubsneves" target="_blank">Juliana Neves</a>, is
-            open-sourced on <a href="https://github.com/jubsneves/weather-app" target="_blank">GitHub</a>
-        </p>
-    </footer>
+            <select name="cities" id="cities">
+                <option value="">Select a city</option>
+                <option value="rio de janeiro">Rio de Janeiro 🇧🇷</option>
+                <option value="lisbon">Lisbon 🇵🇹</option>
+                <option value="barcelona">Barcelona 🇪🇸</option>
+                <option value="paris">Paris 🇫🇷</option>
+            </select>
+
+            <div class="city">
+                <div>
+                    <h2>Los Angeles 🇺🇸</h2>
+                    <div class="date">date</div>
+                </div>
+                <div class="time">time <span class="ampm">am/pm</span></div>
+            </div>
+            <div class="city">
+                <div>
+                    <h2>South Africa 🇿🇦</h2>
+                    <div class="date">date</div>
+                </div>
+                <div class="time">time <span class="ampm">am/pm</span></div>
+            </div>
+            <div class="city">
+                <div>
+                    <h2>Sydney 🇦🇺</h2>
+                    <div class="date">date</div>
+                </div>
+                <div class="time">time <span class="ampm">am/pm</span></div>
+            </div>
+            <div class="city">
+                <div>
+                    <h2>Tokyo 🇯🇵</h2>
+                    <div class="date">date</div>
+                </div>
+                <div class="time">time <span class="ampm">am/pm</span></div>
+            </div>
+        </main>
+        <footer>
+            <p>This project was coded with ♥️ by <a href="https://github.com/jubsneves" target="_blank">Juliana
+                    Neves</a><br>is
+                open-sourced on <a href="https://github.com/jubsneves/weather-app" target="_blank">GitHub</a>
+            </p>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
