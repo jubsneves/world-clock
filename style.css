@@ -62,7 +62,8 @@ select {
 
 .date {
   color: rgb(86, 86, 86);
-  font-size: 16px;
+  font-size: 14px;
+  margin-top: 6px;
 }
 
 .time {
@@ -70,7 +71,7 @@ select {
   font-weight: bold;
 }
 
-.ampm {
+small {
   font-size: 12px;
   font-weight: normal;
 }
