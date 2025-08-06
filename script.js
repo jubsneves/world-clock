@@ -14,6 +14,9 @@ function updateTime(timezone) {
 function updateCity(event) {
   let cityEl = document.querySelector("#city");
   let cityTimeZone = event.target.value;
+  if (cityTimeZone === "current") {
+    cityTimeZone = moment.tz.guess();
+  }
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   cityEl.innerHTML = `
   
