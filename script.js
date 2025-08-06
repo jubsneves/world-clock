@@ -1,5 +1,31 @@
 let currentTimezone = moment.tz.guess();
 
+function updateCityTime() {
+  let sydneyEl = document.querySelector("#sydney");
+  if (sydneyEl) {
+    let sydneyDateEl = sydneyEl.querySelector(".date");
+    let sydneyTimeElement = sydneyEl.querySelector(".time");
+    let sydneyTime = moment().tz("Australia/Sydney");
+
+    sydneyDateEl.innerHTML = sydneyTime.format("MMMM	Do YYYY");
+    sydneyTimeElement.innerHTML = sydneyTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
+
+  let parisElement = document.querySelector("#paris");
+  if (parisElement) {
+    let parisDateElement = parisElement.querySelector(".date");
+    let parisTimeElement = parisElement.querySelector(".time");
+    let parisTime = moment().tz("Europe/Paris");
+
+    parisDateElement.innerHTML = parisTime.format("MMMM	Do YYYY");
+    parisTimeElement.innerHTML = parisTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
+}
+
 function updateDate(timezone) {
   return moment().tz(timezone).format("ddd, MMMM Mo");
 }
@@ -30,14 +56,8 @@ function updateCity(event) {
   `;
 }
 
-setInterval(() => {
-  if (currentTimezone) {
-    const time = document.querySelector(".time");
-    if (time) {
-      time.innerHTML = updateTime(currentTimezone);
-    }
-  }
-}, 1000);
+updateCityTime();
+setInterval(updateCityTime, 1000);
 
 let selectCity = document.querySelector("#select-city");
 selectCity.addEventListener("change", updateCity);
