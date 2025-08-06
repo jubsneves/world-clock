@@ -1,37 +1,40 @@
-let losAngelesEl = document.querySelector("#los-angeles");
-let losAngelesDateEl = losAngelesEl.querySelector(".date");
-let losAngelesTimeEl = losAngelesEl.querySelector(".time");
-let losAngelesTZ = "America/Los_Angeles";
+let currentTimezone = moment.tz.guess();
 
-let londonEl = document.querySelector("#london");
-let londonDateEl = londonEl.querySelector(".date");
-let londonTimeEl = londonEl.querySelector(".time");
-let londonTZ = "Europe/London";
-
-let sydneyEl = document.querySelector("#sydney");
-let sydneyDateEl = sydneyEl.querySelector(".date");
-let sydneyTimeEl = sydneyEl.querySelector(".time");
-let sydneyTZ = "Australia/Sydney";
-
-let tokyoEl = document.querySelector("#tokyo");
-let tokyoDateEl = tokyoEl.querySelector(".date");
-let tokyoTimeEl = tokyoEl.querySelector(".time");
-let tokyoTZ = "Asia/Tokyo";
-
-function updateTime(countryDate, countryTime, countryTZ) {
-  let now = moment();
-  countryDate.innerHTML = now.format("ddd, MMMM Mo, YYYY");
-  countryTime.innerHTML = now
-    .tz(countryTZ)
-    .format("h:mm:ss [<small>]A[</small>]");
+function updateDate(timezone) {
+  return moment().tz(timezone).format("ddd, MMMM Mo");
 }
 
-function init() {
-  updateTime(losAngelesDateEl, losAngelesTimeEl, losAngelesTZ);
-  updateTime(londonDateEl, londonTimeEl, londonTZ);
-  updateTime(sydneyDateEl, sydneyTimeEl, sydneyTZ);
-  updateTime(tokyoDateEl, tokyoTimeEl, tokyoTZ);
+function updateTime(timezone) {
+  let now = moment().tz(timezone);
+  let time = now.format("h:mm:ss");
+  let ampm = now.format("[<small>]A[</small>]");
+  return `${time} ${ampm}`;
 }
 
-init();
-setInterval(init, 1000);
+function updateCity(event) {
+  let cityEl = document.querySelector("#city");
+  let cityTimeZone = event.target.value;
+  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+  cityEl.innerHTML = `
+  
+  <div class="city">
+    <div>
+        <h2>${cityName}</h2>
+        <div class="date">${updateDate(cityTimeZone)}</div>
+    </div>
+    <div class="time">${updateTime(cityTimeZone)}</div>
+  </div>
+  `;
+}
+
+setInterval(() => {
+  if (currentTimezone) {
+    const time = document.querySelector(".time");
+    if (time) {
+      time.innerHTML = updateTime(currentTimezone);
+    }
+  }
+}, 1000);
+
+let selectCity = document.querySelector("#select-city");
+selectCity.addEventListener("change", updateCity);
